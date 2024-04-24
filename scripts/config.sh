@@ -34,7 +34,7 @@ machine2hostname () {
     echo "${!m_hn}"
 }
 
-export DSIG_DEPLOYMENT="~/dsig-artifacts"
+export DSIG_DEPLOYMENT="$HOME/dsig-artifacts"
 export TOML_DIR="$DSIG_DEPLOYMENT/toml/"
 export DORY_REGISTRY_IP=$(machine2hostname machine1)
 export DSIG_CONFIG="$TOML_DIR/dsig.toml"
