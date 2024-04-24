@@ -1,0 +1,3 @@
+[submodule "bin/dsig"]
+	path = bin/dsig
+	url = https://github.com/LPD-EPFL/dsig.git
