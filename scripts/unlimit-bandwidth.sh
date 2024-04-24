@@ -1,0 +1,9 @@
+set -u
+
+ibportstate -C mlx5_1 10 1 width 4 # 1x -> 4x
+ibportstate -C mlx5_1 10 1 espeed 31 # enables > 10Gbps
+ibportstate -C mlx5_1 10 1 reset
+
+sleep 5
+
+ibportstate -C mlx5_1 10 1

@@ -1,0 +1,4 @@
+nic = "mlx5_1"
+procs = [1,2]
+signers = [1]
+verifiers = [2]

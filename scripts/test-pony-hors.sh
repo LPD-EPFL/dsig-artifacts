@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -u
+
+SCRIPT_DIR="$( realpath -sm "$( dirname "${BASH_SOURCE[0]}" )" )"
+
+SUFFIX=$1
+MODE=$2
+HASH=$3
+BATCH_SIZE=$4
+SECRETS=$5
+ARGS="${@:6}"
+
+PARAM="--scheme pony"
+EXEC="~/pony/bin/pony-ping-hors-$MODE-$HASH-$BATCH_SIZE-$SECRETS"
+# Name of the tmux AND output files
+NAME="pony-ping-hors-$MODE-$HASH-b$BATCH_SIZE-k$SECRETS-$SUFFIX"
+
+"$SCRIPT_DIR"/setup-all-tmux.sh
+
+"$SCRIPT_DIR"/remote-memc.sh machine1
+
+"$SCRIPT_DIR"/remote-invoker.sh machine1 $NAME-1 $EXEC $PARAM -l 1 $ARGS
+"$SCRIPT_DIR"/remote-invoker.sh machine2 $NAME-2 $EXEC $PARAM -l 2 $ARGS
+
+"$SCRIPT_DIR"/wait-till-completion.sh machine1 $NAME-1
+
+"$SCRIPT_DIR"/kill-all-tmux.sh
