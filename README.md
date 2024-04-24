@@ -52,11 +52,12 @@ apt-get -y install clang-format-10 clang-tidy-10 clang-tools-10 git
 pip3 install --upgrade "conan>=1.63.0,<2.0.0"
 
 # Install extra python packages
-#RUN pip3 install --upgrade cmake-format black halo pyyaml"<6.0,>=3.11"
+# pip3 install --upgrade cmake-format black halo pyyaml"<6.0,>=3.11"
 pip3 install --upgrade cmake-format black halo
 
-# RUN conan profile new default --detect
-# RUN conan profile update settings.compiler.libcxx=libstdc++11 default
+# If you need to create a conan profile:
+# conan profile new default --detect
+# conan profile update settings.compiler.libcxx=libstdc++11 default
 ```
 
 To run, also install:
@@ -69,13 +70,6 @@ Clone this repository, including the dsig submodule:
 ```sh
 git clone https://github.com/LPD-EPFL/dsig-artifacts.git --recurse-submodules
 cd dsig-artifacts
-```
-
-Or alternatively:
-```sh
-git clone https://github.com/LPD-EPFL/dsig-artifacts.git
-cd dsig-artifacts
-git clone https://github.com/LPD-EPFL/dsig.git bin/dsig
 ```
 
 ## Build dsig and prepare deployment
@@ -116,7 +110,8 @@ The `~/dsig-artifacts` should contain the `bin`, `experiments`, `scripts` and `t
 ## Run experiments
 
 From the gateway, once everything has been deployed, you can simply run the scripts in the `experiments/`.
-Logs of the experiments will be generated on the respective machines, but it is possible to gather them all using:
+Logs of the experiments will be generated on the `~/dsig-artifacts/logs/` folder of the respective machines, but it is possible to gather them all using:
 ```sh
 ./gather-logs.sh
 ```
+This will gather all the logs in the gateway's `logs/` folder.
