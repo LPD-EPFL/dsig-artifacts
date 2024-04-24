@@ -115,4 +115,8 @@ The `~/dsig-artifacts` should contain the `bin`, `experiments`, `scripts` and `t
 
 ## Run experiments
 
-TODO
+From the gateway, once everything has been deployed, you can simply run the scripts in the `experiments/`.
+Logs of the experiments will be generated on the respective machines, but it is possible to gather them all using:
+```sh
+./gather-logs.sh
+```
