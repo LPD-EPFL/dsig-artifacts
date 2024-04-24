@@ -38,5 +38,5 @@ export DSIG_DEPLOYMENT="~/dsig-artifacts"
 export TOML_DIR="$DSIG_DEPLOYMENT/toml/"
 export DORY_REGISTRY_IP=$(machine2hostname machine1)
 export DSIG_CONFIG="$TOML_DIR/dsig.toml"
-export DORY_LIB_REPARENT_PATH="$DSIG_DEPLOYMENT/scripts/libreparent.so"
+export DORY_LIB_REPARENT_PATH="$( realpath -sm "$DSIG_DEPLOYMENT/scripts/libreparent.so" )"
 export DSIG_CORES="bg=10"

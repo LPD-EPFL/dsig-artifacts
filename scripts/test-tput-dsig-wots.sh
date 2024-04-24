@@ -14,7 +14,7 @@ INGRESS_DELTA=$6
 ARGS="${@:7}"
 
 PARAM="--scheme dsig"
-EXEC="$DSIG_DEPLOYMENT/bin/dsig-tput-wots-$HASH-$BATCH_SIZE-$DEPTH"
+EXEC="dsig-tput-wots-$HASH-$BATCH_SIZE-$DEPTH"
 # Name of the tmux AND output files
 NAME="dsig-tput-wots-$HASH-b$BATCH_SIZE-d$DEPTH-$INGRESS-$INGRESS_DELTA-$SUFFIX"
 

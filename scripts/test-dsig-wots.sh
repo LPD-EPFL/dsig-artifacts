@@ -12,7 +12,7 @@ DEPTH=$4
 ARGS="${@:5}"
 
 PARAM="--scheme dsig"
-EXEC="$DSIG_DEPLOYMENT/bin/dsig-ping-wots-$HASH-$BATCH_SIZE-$DEPTH"
+EXEC="dsig-ping-wots-$HASH-$BATCH_SIZE-$DEPTH"
 # Name of the tmux AND output files
 NAME="dsig-ping-wots-$HASH-b$BATCH_SIZE-d$DEPTH-$SUFFIX"
 
