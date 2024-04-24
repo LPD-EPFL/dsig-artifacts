@@ -18,7 +18,7 @@ ARGS="${@:6}"
 CLIENTS=$(echo $(seq 2 1 $(($NB_CLIENTS + 1))) | sed 's/ / -v /g');
 
 PARAM="-s 1 -v $CLIENTS" # String of the form "-s 1 -v 2 -v 3 -v 4 ..."
-EXEC="~/dsig/bin/dsig-scalability-wots-$HASH-$BATCH_SIZE-$DEPTH"
+EXEC="$DSIG_DEPLOYMENT/bin/dsig-scalability-wots-$HASH-$BATCH_SIZE-$DEPTH"
 # Name of the tmux AND output files
 [[ $SCHEME = "dsig" ]] && SCHEME_NAME="wots-$HASH-b$BATCH_SIZE-d$DEPTH" || SCHEME_NAME="$SCHEME"
 NAME="dsig-scalability-verifiers-$SCHEME_NAME-$NB_CLIENTS-$INGRESS-$INGRESS_DELTA-$SUFFIX"

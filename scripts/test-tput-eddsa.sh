@@ -11,7 +11,7 @@ INGRESS_DELTA=$4
 ARGS="${@:5}"
 
 PARAM="--scheme $SCHEME"
-EXEC="~/dsig/bin/dsig-tput-wots-haraka-7-2"
+EXEC="$DSIG_DEPLOYMENT/bin/dsig-tput-wots-haraka-7-2"
 # Name of the tmux AND output files
 NAME="dsig-tput-$SCHEME-$INGRESS-$INGRESS_DELTA-$SUFFIX"
 

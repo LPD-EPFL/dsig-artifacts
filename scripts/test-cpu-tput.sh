@@ -11,7 +11,7 @@ DEPTH=$3
 ARGS="${@:4}"
 
 # PARAM="--scheme dsig"
-EXEC="~/dsig/bin/dsig-cpu-tput-wots-$HASH-$BATCH_SIZE-$DEPTH"
+EXEC="$DSIG_DEPLOYMENT/bin/dsig-cpu-tput-wots-$HASH-$BATCH_SIZE-$DEPTH"
 # Name of the tmux AND output files
 NAME="dsig-cpu-tput-wots-$HASH-b$BATCH_SIZE-d$DEPTH-$SUFFIX"
 

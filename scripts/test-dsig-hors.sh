@@ -12,7 +12,7 @@ SECRETS=$5
 ARGS="${@:6}"
 
 PARAM="--scheme dsig"
-EXEC="~/dsig/bin/dsig-ping-hors-$MODE-$HASH-$BATCH_SIZE-$SECRETS"
+EXEC="$DSIG_DEPLOYMENT/bin/dsig-ping-hors-$MODE-$HASH-$BATCH_SIZE-$SECRETS"
 # Name of the tmux AND output files
 NAME="dsig-ping-hors-$MODE-$HASH-b$BATCH_SIZE-k$SECRETS-$SUFFIX"
 

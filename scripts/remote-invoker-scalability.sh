@@ -10,6 +10,6 @@ ARGS="${@:2}"
 
 MACHINE=$(machine2ssh $M)
 
-ssh -o LogLevel=QUIET -t $MACHINE "$SCRIPT_DIR/invoker-scalability.sh $ARGS"
+ssh -o LogLevel=QUIET -t $MACHINE "$DSIG_DEPLOYMENT/scripts/invoker-scalability.sh $ARGS"
 
-echo "Launched on $MACHINE: $SCRIPT_DIR/invoker-scalability.sh $ARGS"
+echo "Launched on $MACHINE: $DSIG_DEPLOYMENT/scripts/invoker-scalability.sh $ARGS"

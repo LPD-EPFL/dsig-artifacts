@@ -18,8 +18,8 @@ ARGS=" --dev mlx5_1 --client-id 2 --application $APP -c $CONFIG --scheme $SCHEME
 
 "$SCRIPT_DIR"/remote-memc.sh machine1
 
-"$SCRIPT_DIR"/remote-invoker.sh machine1 $NAME-1 ~/dsig/bin/audit-server --local-id 1 $ARGS
-"$SCRIPT_DIR"/remote-invoker.sh machine2 $NAME-2 ~/dsig/bin/audit-client --local-id 2 --server-id 1 $ARGS
+"$SCRIPT_DIR"/remote-invoker.sh machine1 $NAME-1 "$DSIG_DEPLOYMENT/bin/audit-server" --local-id 1 $ARGS
+"$SCRIPT_DIR"/remote-invoker.sh machine2 $NAME-2 "$DSIG_DEPLOYMENT/bin/audit-client" --local-id 2 --server-id 1 $ARGS
 
 "$SCRIPT_DIR"/wait-till-completion.sh machine2 $NAME-2
 

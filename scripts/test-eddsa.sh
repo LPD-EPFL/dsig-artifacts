@@ -9,7 +9,7 @@ SCHEME=$2
 ARGS="${@:3}"
 
 PARAM="--scheme $SCHEME"
-EXEC="~/dsig/bin/dsig-ping-wots-haraka-7-2"
+EXEC="$DSIG_DEPLOYMENT/bin/dsig-ping-wots-haraka-7-2"
 # Name of the tmux AND output files
 NAME="dsig-ping-$SCHEME-$SUFFIX"
 

@@ -9,7 +9,7 @@ SCHEME=$2
 # NBCLIENTS=$3
 ARGS="${@:3}"
 
-EXEC="~/dsig/bin/ubft-tcb-$SCHEME"
+EXEC="$DSIG_DEPLOYMENT/bin/ubft-tcb-$SCHEME"
 # Name of the tmux AND output files
 NAME="ubft-tcb-$SCHEME-$SUFFIX"
 
