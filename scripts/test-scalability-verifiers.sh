@@ -3,6 +3,7 @@
 set -u
 
 SCRIPT_DIR="$( realpath -sm "$( dirname "${BASH_SOURCE[0]}" )" )"
+source "$SCRIPT_DIR"/config.sh
 
 HASH=haraka
 BATCH_SIZE=7
