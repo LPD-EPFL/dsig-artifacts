@@ -17,7 +17,7 @@ tmux new-window -t $TMUX_SESSION -n "$WIN_NAME" \
     "source \"$SCRIPT_DIR\"/config.sh; \
      export DSIG_CONFIG=\"$TOML_DIR/$TOML\"; \
      export DSIG_CORES=\"bg=$BG_THD\"; \
-     stdbuf -o L -e L taskset -c $MAIN_THD numactl -m 0 $DSIG_DEPLOYMENT/bin/$BIN_PATH $ARGS 2>&1 | tee ${DSIG_DEPLOYMENT}/logs/${WIN_NAME}.txt;"
+     stdbuf -o L -e L numactl -m 0 -N 0 -C $MAIN_THD $DSIG_DEPLOYMENT/bin/$BIN_PATH $ARGS 2>&1 | tee ${DSIG_DEPLOYMENT}/logs/${WIN_NAME}.txt;"
 # tmux new-window -t $TMUX_SESSION -n "$WIN_NAME" \
 #     "source \"$SCRIPT_DIR\"/config.sh; \
 #      stdbuf -o L -e L numactl -m 0 -N 0 $BIN_PATH $ARGS 2>&1 | tee dsig/logs/${WIN_NAME}.txt;"
