@@ -19,9 +19,9 @@ machine4hostname=dsig-$machine4
 
 
 # Memcached does not run with root access
-#PONY_HAVE_SUDO_ACCESS=false
-#PONY_SUDO_ASKS_PASS=false
-#PONY_SUDO_PASS="MyPass"
+#DSIG_HAVE_SUDO_ACCESS=false
+#DSIG_SUDO_ASKS_PASS=false
+#DSIG_SUDO_PASS="MyPass"
 
 machine2ssh () {
     local m=$1
@@ -36,6 +36,6 @@ machine2hostname () {
 
 export TOML_DIR="$( realpath -sm  $SCRIPT_DIR/../toml/ )"
 export DORY_REGISTRY_IP=$(machine2hostname machine1)
-export PONY_CONFIG="$TOML_DIR/pony.toml"
+export DSIG_CONFIG="$TOML_DIR/dsig.toml"
 export DORY_LIB_REPARENT_PATH="$SCRIPT_DIR/libreparent.so"
-export PONY_CORES="bg=10"
+export DSIG_CORES="bg=10"

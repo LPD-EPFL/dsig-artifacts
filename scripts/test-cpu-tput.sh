@@ -10,10 +10,10 @@ BATCH_SIZE=$2
 DEPTH=$3
 ARGS="${@:4}"
 
-# PARAM="--scheme pony"
-EXEC="~/pony/bin/pony-cpu-tput-wots-$HASH-$BATCH_SIZE-$DEPTH"
+# PARAM="--scheme dsig"
+EXEC="~/dsig/bin/dsig-cpu-tput-wots-$HASH-$BATCH_SIZE-$DEPTH"
 # Name of the tmux AND output files
-NAME="pony-cpu-tput-wots-$HASH-b$BATCH_SIZE-d$DEPTH-$SUFFIX"
+NAME="dsig-cpu-tput-wots-$HASH-b$BATCH_SIZE-d$DEPTH-$SUFFIX"
 
 "$SCRIPT_DIR"/setup-all-tmux.sh
 

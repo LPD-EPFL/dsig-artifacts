@@ -9,7 +9,7 @@ SCHEME=$2
 # NBCLIENTS=$3
 ARGS="${@:3}"
 
-EXEC="~/pony/bin/ubft-$SCHEME"
+EXEC="~/dsig/bin/ubft-$SCHEME"
 # Name of the tmux AND output files
 NAME="ubft-$SCHEME-$SUFFIX"
 

@@ -18,16 +18,16 @@ ARGS="${@:6}"
 CLIENTS=$(echo $(seq 2 1 $(($NB_CLIENTS + 1))) | sed 's/ / -s /g');
 
 PARAM="-v 1 -s $CLIENTS" # String of the form "-v 1 -s 2 -s 3 -s 4 ..."
-EXEC="~/pony/bin/pony-scalability-wots-$HASH-$BATCH_SIZE-$DEPTH"
+EXEC="~/dsig/bin/dsig-scalability-wots-$HASH-$BATCH_SIZE-$DEPTH"
 # Name of the tmux AND output files
-[[ $SCHEME = "pony" ]] && SCHEME_NAME="wots-$HASH-b$BATCH_SIZE-d$DEPTH" || SCHEME_NAME="$SCHEME"
-NAME="pony-scalability-signers-$SCHEME_NAME-$NB_CLIENTS-$INGRESS-$INGRESS_DELTA-$SUFFIX"
+[[ $SCHEME = "dsig" ]] && SCHEME_NAME="wots-$HASH-b$BATCH_SIZE-d$DEPTH" || SCHEME_NAME="$SCHEME"
+NAME="dsig-scalability-signers-$SCHEME_NAME-$NB_CLIENTS-$INGRESS-$INGRESS_DELTA-$SUFFIX"
 
 "$SCRIPT_DIR"/setup-all-tmux.sh
 
 "$SCRIPT_DIR"/remote-memc.sh machine1
 
-TOML="pony-${NB_CLIENTS}s.toml"
+TOML="dsig-${NB_CLIENTS}s.toml"
 MAIN_THD=8
 BG_THD=10
 

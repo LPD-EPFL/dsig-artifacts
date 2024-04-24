@@ -19,15 +19,15 @@ INGRESS_DELTA=$7
 ARGS="${@:8}"
 
 PARAM="--scheme $SCHEME -c $NB_CLIENTS -P $PROC_TIME -s $MSG_SIZE -i $INGRESS -d $INGRESS_DELTA"
-EXEC="~/pony/bin/pony-synthetic-wots-$HASH-$BATCH_SIZE-$DEPTH"
+EXEC="~/dsig/bin/dsig-synthetic-wots-$HASH-$BATCH_SIZE-$DEPTH"
 # Name of the tmux AND output files
-NAME="pony-synthetic-signers-$SCHEME-$HASH-b$BATCH_SIZE-d$DEPTH-c$NB_CLIENTS-P$PROC_TIME-msg$MSG_SIZE-$INGRESS-$INGRESS_DELTA-$SUFFIX"
+NAME="dsig-synthetic-signers-$SCHEME-$HASH-b$BATCH_SIZE-d$DEPTH-c$NB_CLIENTS-P$PROC_TIME-msg$MSG_SIZE-$INGRESS-$INGRESS_DELTA-$SUFFIX"
 
 "$SCRIPT_DIR"/setup-all-tmux.sh
 
 "$SCRIPT_DIR"/remote-memc.sh machine1
 
-TOML="pony-${NB_CLIENTS}s.toml"
+TOML="dsig-${NB_CLIENTS}s.toml"
 MAIN_THD=8
 BG_THD=10
 

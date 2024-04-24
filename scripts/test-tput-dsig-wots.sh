@@ -12,10 +12,10 @@ INGRESS=$5
 INGRESS_DELTA=$6
 ARGS="${@:7}"
 
-PARAM="--scheme pony"
-EXEC="~/pony/bin/pony-tput-wots-$HASH-$BATCH_SIZE-$DEPTH"
+PARAM="--scheme dsig"
+EXEC="~/dsig/bin/dsig-tput-wots-$HASH-$BATCH_SIZE-$DEPTH"
 # Name of the tmux AND output files
-NAME="pony-tput-wots-$HASH-b$BATCH_SIZE-d$DEPTH-$INGRESS-$INGRESS_DELTA-$SUFFIX"
+NAME="dsig-tput-wots-$HASH-b$BATCH_SIZE-d$DEPTH-$INGRESS-$INGRESS_DELTA-$SUFFIX"
 
 "$SCRIPT_DIR"/setup-all-tmux.sh
 

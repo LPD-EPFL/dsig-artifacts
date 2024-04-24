@@ -9,9 +9,9 @@ SCHEME=$2
 ARGS="${@:3}"
 
 PARAM="--scheme $SCHEME"
-EXEC="~/pony/bin/pony-ping-wots-haraka-7-2"
+EXEC="~/dsig/bin/dsig-ping-wots-haraka-7-2"
 # Name of the tmux AND output files
-NAME="pony-ping-$SCHEME-$SUFFIX"
+NAME="dsig-ping-$SCHEME-$SUFFIX"
 
 "$SCRIPT_DIR"/setup-all-tmux.sh
 

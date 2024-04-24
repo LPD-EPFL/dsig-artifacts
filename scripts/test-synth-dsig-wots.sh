@@ -14,10 +14,10 @@ INGRESS=$6
 INGRESS_DELTA=$7
 ARGS="${@:8}"
 
-PARAM="--scheme pony"
-EXEC="~/pony/bin/pony-synthetic-wots-$HASH-$BATCH_SIZE-$DEPTH"
+PARAM="--scheme dsig"
+EXEC="~/dsig/bin/dsig-synthetic-wots-$HASH-$BATCH_SIZE-$DEPTH"
 # Name of the tmux AND output files
-NAME="pony-synthetic-wots-$HASH-b$BATCH_SIZE-d$DEPTH-P$PROC_TIME-$INGRESS-$INGRESS_DELTA-$SUFFIX"
+NAME="dsig-synthetic-wots-$HASH-b$BATCH_SIZE-d$DEPTH-P$PROC_TIME-$INGRESS-$INGRESS_DELTA-$SUFFIX"
 
 "$SCRIPT_DIR"/setup-all-tmux.sh
 

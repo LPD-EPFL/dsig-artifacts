@@ -11,9 +11,9 @@ INGRESS_DELTA=$4
 ARGS="${@:5}"
 
 PARAM="--scheme $SCHEME"
-EXEC="~/pony/bin/pony-tput-wots-haraka-7-2"
+EXEC="~/dsig/bin/dsig-tput-wots-haraka-7-2"
 # Name of the tmux AND output files
-NAME="pony-tput-$SCHEME-$INGRESS-$INGRESS_DELTA-$SUFFIX"
+NAME="dsig-tput-$SCHEME-$INGRESS-$INGRESS_DELTA-$SUFFIX"
 
 "$SCRIPT_DIR"/setup-all-tmux.sh
 
