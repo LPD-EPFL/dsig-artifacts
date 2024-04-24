@@ -25,13 +25,13 @@ By running the experiments, you should be able to reproduce the numbers shown in
 Assuming you have access to a pre-configured cluster, you will be able to run a first experiment
 that measures the end-to-end latency of different apps for various signature schemes (figure 7) in less than 30 minutes by:
 1. Connecting to the pre-configured cluster's gateway,
-2. [Building and deploying the evaluation binaries](##Building-and-Deploying-the-Binaries),
-3. [Running the script for figure 7](##Running-Experiments).
+2. [Building and deploying the evaluation binaries](#Building-and-Deploying-the-Binaries),
+3. [Running the script for figure 7](#Running-Experiments).
 
 # Detailed instructions
 
 This section will guide you on how to configure, build, and run all the experiments **from scratch**.
-If you have access to a pre-configured cluster, skip to [building and deploying the binaries](##Building-and-Deploying-the-Binaries).
+If you have access to a pre-configured cluster, skip to [building and deploying the binaries](#Building-and-Deploying-the-Binaries).
 
 ## Cluster Configuration
 
