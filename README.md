@@ -32,7 +32,7 @@ Binaries for dsig and dsig's applications will appear in `bin/dsig/dsig/build/bi
 ## Deploy
 To deploy dsig experiments, first run:
 ```sh
-./deployment.sh
+./prepare-deployment.sh
 ```
 This will produce a `deployment.zip` file.
 Then, send this zip files to all the servers, and unzip the files in the home directory.
