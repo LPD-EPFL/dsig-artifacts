@@ -3,19 +3,19 @@ ROOT_DIR='~'
 SCRIPT_DIR="$( realpath -sm "$( dirname "${BASH_SOURCE[0]}" )" )"
 
 MACHINE_COUNT=4
-TMUX_SESSION=ponyng
+TMUX_SESSION=dsig
 
 # Set ssh names of the machines
-machine1=dcldelta1
-machine2=dcldelta2
-machine3=dcldelta3
-machine4=dcldelta4
+machine1=w1
+machine2=w2
+machine3=w3
+machine4=w4
 
 # Set fqdn names of the machines (use `hostname -f`)
-machine1hostname=$machine1.epfl.ch
-machine2hostname=$machine2.epfl.ch
-machine3hostname=$machine3.epfl.ch
-machine4hostname=$machine4.epfl.ch
+machine1hostname=dsig-$machine1
+machine2hostname=dsig-$machine2
+machine3hostname=dsig-$machine3
+machine4hostname=dsig-$machine4
 
 
 # Memcached does not run with root access
