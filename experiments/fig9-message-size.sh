@@ -5,7 +5,8 @@ set -u
 SCRIPT_DIR="$( realpath -sm "$( dirname "${BASH_SOURCE[0]}" )"/../scripts )"
 
 # Bandwidth should be unlimited by default, that is:
-# unless an experiment with limited bandwidth did fully complete.
+# unless an experiment with limited bandwidth crashed or was interupted.
+# Otherwise, run the following to unlimit bandwidth:
 # "${SCRIPT_DIR}"/unlimit-bandwidth.sh
 
 FIGURE_NAME="fig9-message-size"
