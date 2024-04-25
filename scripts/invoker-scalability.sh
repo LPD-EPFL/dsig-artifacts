@@ -2,22 +2,21 @@
 
 set -e
 
-SCRIPT_DIR="$( realpath -sm  "$( dirname "${BASH_SOURCE[0]}" )")"
-TOML_DIR="$( realpath -sm  $SCRIPT_DIR/../toml/ )"
-source "$SCRIPT_DIR"/config.sh
+SCRIPT_DIR="$( realpath -sm "$( dirname "${BASH_SOURCE[0]}" )" )"
+source "${SCRIPT_DIR}"/config.sh
 
-WIN_NAME=$1
-BIN_PATH=$2
-TOML=$3
-MAIN_THD=$4
-BG_THD=$5
-ARGS="${@:6}"
+FOLDER_NAME=$1
+WIN_NAME=$2
+BINARY=$3
+TOML=$4
+MAIN_THD=$5
+BG_THD=$6
+ARGS="${@:7}"
 
 tmux new-window -t $TMUX_SESSION -n "$WIN_NAME" \
-    "source \"$SCRIPT_DIR\"/config.sh; \
+    "source \"${SCRIPT_DIR}\"/config.sh; \
+     mkdir -p \"${LOG_DIR}/${FOLDER_NAME}/\"; \
      export DSIG_CONFIG=\"$TOML_DIR/$TOML\"; \
      export DSIG_CORES=\"bg=$BG_THD\"; \
-     stdbuf -o L -e L numactl -m 0 -N 0 -C $MAIN_THD $DSIG_DEPLOYMENT/bin/$BIN_PATH $ARGS 2>&1 | tee ${DSIG_DEPLOYMENT}/logs/${WIN_NAME}.txt;"
-# tmux new-window -t $TMUX_SESSION -n "$WIN_NAME" \
-#     "source \"$SCRIPT_DIR\"/config.sh; \
-#      stdbuf -o L -e L numactl -m 0 -N 0 $BIN_PATH $ARGS 2>&1 | tee dsig/logs/${WIN_NAME}.txt;"
+     stdbuf -o L -e L numactl -m 0 -N 0 -C $MAIN_THD \"${BIN_DIR}/$BINARY\" $ARGS 2>&1 | \"${LOG_DIR}/${FOLDER_NAME}/${WIN_NAME}.txt\"; \
+     sleep 5"

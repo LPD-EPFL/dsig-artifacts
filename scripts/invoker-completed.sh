@@ -2,8 +2,8 @@
 
 set -e
 
-SCRIPT_DIR="$( realpath -sm  "$( dirname "${BASH_SOURCE[0]}" )")"
-source "$SCRIPT_DIR"/config.sh
+SCRIPT_DIR="$( realpath -sm "$( dirname "${BASH_SOURCE[0]}" )" )"
+source "${SCRIPT_DIR}"/config.sh
 
 WIN_NAME=$1
 

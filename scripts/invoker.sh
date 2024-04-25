@@ -2,16 +2,16 @@
 
 set -e
 
-SCRIPT_DIR="$( realpath -sm  "$( dirname "${BASH_SOURCE[0]}" )")"
-source "$SCRIPT_DIR"/config.sh
+SCRIPT_DIR="$( realpath -sm "$( dirname "${BASH_SOURCE[0]}" )" )"
+source "${SCRIPT_DIR}"/config.sh
 
-WIN_NAME=$1
-BIN_PATH=$2
-ARGS="${@:3}"
+FOLDER_NAME=$1
+WIN_NAME=$2
+BINARY=$3
+ARGS="${@:4}"
 
 tmux new-window -t $TMUX_SESSION -n "$WIN_NAME" \
-    "source \"$SCRIPT_DIR\"/config.sh; \
-     stdbuf -o L -e L numactl -m 0 -N 0 -C 8 $DSIG_DEPLOYMENT/bin/$BIN_PATH $ARGS 2>&1 | tee ${DSIG_DEPLOYMENT}/logs/${WIN_NAME}.txt;"
-# tmux new-window -t $TMUX_SESSION -n "$WIN_NAME" \
-#     "source \"$SCRIPT_DIR\"/config.sh; \
-#      stdbuf -o L -e L numactl -m 0 -N 0 $BIN_PATH $ARGS 2>&1 | tee dsig/logs/${WIN_NAME}.txt;"
+    "source \"${SCRIPT_DIR}\"/config.sh; \
+     mkdir -p \"${LOG_DIR}/${FOLDER_NAME}/\"; \
+     stdbuf -o L -e L numactl -m 0 -N 0 -C 8 \"${BIN_DIR}/$BINARY\" $ARGS 2>&1 | tee \"${LOG_DIR}/${FOLDER_NAME}/${WIN_NAME}.txt\"; \
+     sleep 5"

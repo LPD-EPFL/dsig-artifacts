@@ -1,5 +1,4 @@
 # Use the absolute path
-ROOT_DIR='~'
 SCRIPT_DIR="$( realpath -sm "$( dirname "${BASH_SOURCE[0]}" )" )"
 
 MACHINE_COUNT=4
@@ -34,9 +33,13 @@ machine2hostname () {
     echo "${!m_hn}"
 }
 
-export DSIG_DEPLOYMENT="$HOME/dsig-artifacts"
-export TOML_DIR="$DSIG_DEPLOYMENT/toml/"
+export DSIG_DEPLOYMENT="${HOME}/dsig-artifacts"
+export ROOT_DIR="$( realpath -sm "${SCRIPT_DIR}"/.. )"
+export BIN_DIR="${ROOT_DIR}/bin"
+export LOG_DIR="${ROOT_DIR}/logs"
+export TOML_DIR="${ROOT_DIR}/toml"
+export DSIG_CONFIG="${TOML_DIR}/dsig.toml"
+export DORY_LIB_REPARENT_PATH="${SCRIPT_DIR}/libreparent.so"
+
 export DORY_REGISTRY_IP=$(machine2hostname machine1)
-export DSIG_CONFIG="$TOML_DIR/dsig.toml"
-export DORY_LIB_REPARENT_PATH="$( realpath -sm "$DSIG_DEPLOYMENT/scripts/libreparent.so" )"
 export DSIG_CORES="bg=10"
