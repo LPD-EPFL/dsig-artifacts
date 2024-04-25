@@ -13,7 +13,7 @@ measurements = {
     'Buffer': None
 }
 
-tiles = ['0.1', '1', '10', '25', '50', '75', '90', '99', '99.9']
+tiles = ['1', '10', '25', '50', '75', '90', '99']
 
 def parse_ping(path, mode='FAST', network_offset=0, filter_tiles=True):
     skip = False
