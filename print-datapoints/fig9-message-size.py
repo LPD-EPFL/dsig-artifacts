@@ -29,7 +29,7 @@ for scheme in schemes:
                 scheme,
                 "proc1.txt")
         data = parse_ping(path, network_offset=netoffset)
-        print(f'{scheme} with messages of {sz} B, median total: {data['one-way'][50]}')
+        print(f'{scheme} with messages of {sz} B, median total: {data["one-way"][50]}')
 
     path = os.path.join("logs/",
             figure_name,
@@ -42,4 +42,4 @@ for scheme in schemes:
     for lat, latname in subbars:
         print(f'\t- median to {latname}: {data[lat][50]}μs')
         cumul += data[lat][50]
-    print(f'\t- median for total: {data['one-way'][50]}μs')
+    print(f'\t- median for total: {data["one-way"][50]}μs')

@@ -36,4 +36,4 @@ for scheme in schemes:
         cumul += data[lat][50]
     print(f'\t- percentiles for total:')
     for i in percentiles:
-        print(f'\t\t- {i}%: {data['one-way'][i]}μs')
+        print(f'\t\t- {i}%: {data["one-way"][i]}μs')
