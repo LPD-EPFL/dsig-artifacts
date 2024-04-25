@@ -32,7 +32,7 @@ for bs in batch_sizes:
             f'batchsize-of-{bs}',
             "proc1.txt")
     data = parse_cpu_tput(path)
-    print(f'\t-batches of {bs}: {data["sign"]}ksig/s')
+    print(f'\t-batches of {bs}: {data["sign"]}kSig/s')
     
 print("Dsig verification throughput for different EdDSA batch sizes:")
 for bs in batch_sizes:
@@ -42,4 +42,4 @@ for bs in batch_sizes:
             f'batchsize-of-{bs}',
             "proc1.txt")
     data = parse_cpu_tput(path)
-    print(f'\t-batches of {bs}: {data["verify"]}ksig/s')
+    print(f'\t-batches of {bs}: {data["verify"]}kSig/s')

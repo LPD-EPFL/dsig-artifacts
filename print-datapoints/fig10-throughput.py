@@ -44,4 +44,4 @@ for ing_type in ingress_types:
         xsys = sorted(xsys, key=lambda xy: xy[0])
         print(f'tput-latency datapoints for {scheme} with {ing_type}:')
         for tput, lat in xsys:
-            print(f'\t- {tput}ksig/s, {lat}μs')
+            print(f'\t- {tput}kSig/s, {lat}μs')
