@@ -10,6 +10,7 @@ More precisely, it contains:
 ## Claims
 
 By running the experiments, you should be able to reproduce the numbers shown in:
+* **Figure 1**: Latency of an auditable KVS, BFT broadcast and BFT replication with EdDSA and DSig.
 * **Figure 6**: Latency to sign, transmit and verify using different configurations of DSig.
 * **Figure 7**: End-to-end latency of different applications when using either Sodium, Dalek or DSig.
 * **Figure 8**: Latency CDFs of the different schemes, and their latency to sign, transmit and verify.
@@ -133,7 +134,7 @@ As a sanity check, the `~/dsig-artifacts` directory should contain the `bin`, `e
 ## Running Experiments
 
 Once the binaries are deployed, you can reproduce the results presented in our paper from the gateway by running the scripts in `experiments/`.
-For instance, to reproduce the results of figure 7, run `experiments/apps.sh`.
+For instance, to reproduce the results of figure 7, run `experiments/fig7-latency-of-apps.sh`.
 The logs of the experiments---which translate to the data points presented in our paper---can be found it the `~/dsig-artifacts/logs/` directory of the machines they executed on.
 Gather these logs in the gateway's `logs/` directory via:
 ```sh
@@ -141,12 +142,13 @@ Gather these logs in the gateway's `logs/` directory via:
 ```
 
 Each figure/table maps to different scripts as follows:
-* Figure 6: `experiments/wots.sh` and `experiments/hors.sh`,
-* Figure 7: `experiments/apps.sh`,
-* Figure 8: `experiments/msg-size.sh` (at 8 bytes) and `experiments/miss.sh`,
-* Figure 9: `experiments/msg-size.sh`,
-* Figure 10: `experiments/tput-short.sh` (fast, for the critical data points) and `experiments/tput.sh` (very slow, for all data points),
-* Figure 11: `experiments/scalability.sh`,
-* Figure 12: `experiments/synthetic.sh`,
-* Figure 13: `experiments/batch-size.sh`,
-* Table 1: `experiments/batch-size.sh` (for a batch size of 128 for throughput) and `experiments/msg-size.sh` (at 8B for latency).
+* Figure 1: `experiments/fig1-intro-latency-of-apps.sh`,
+* Figure 6: `experiments/fig6-choice-of-hbss.sh`,
+* Figure 7: `experiments/fig7-latency-of-apps.sh`,
+* Figure 8: `experiments/fig8-latency-cdf.sh`,
+* Figure 9: `experiments/fig9-message-size.sh`,
+* Figure 10: `experiments/fig10-throughput.sh` (very slow, for all data points), and `experiments/shorter-fig10-throughput.sh` (fast, for the critical data points),
+* Figure 11: `experiments/fig11-scalability.sh`,
+* Figure 12: `experiments/fig12-synthetic-app.sh`,
+* Figure 13: `experiments/fig13-batch-size.sh`,
+* Table 1: `experiments/table1-eddsa-vs-dsig.sh`.
