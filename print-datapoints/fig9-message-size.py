@@ -33,7 +33,7 @@ for scheme in schemes:
 
     path = os.path.join("logs/",
             figure_name,
-            "msg-of-8192B"
+            "msg-of-8192B",
             scheme,
             "proc1.txt")
     data = parse_ping(path, network_offset=netoffset)
