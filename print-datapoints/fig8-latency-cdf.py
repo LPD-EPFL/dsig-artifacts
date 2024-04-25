@@ -17,14 +17,14 @@ subbars = [
     ("rverif", "verify"),
 ]
 
-path = os.path.join("../logs/", figure_name, "eddsa-dalek", "proc1.txt")
+path = os.path.join("logs/", figure_name, "eddsa-dalek", "proc1.txt")
 data = parse_ping(path)
 netoffset = data['net'][50]
 
 percentiles = [0.1] + list(range(1,100)) + [99.9]
 
 for scheme in schemes:
-    path = os.path.join("../logs/",
+    path = os.path.join("logs/",
             figure_name,
             scheme,
             "proc1.txt")

@@ -18,7 +18,7 @@ ingress_types = [
 
 for ing_type in ingress_types:
     for scheme in schemes:
-        path = os.path.join("../logs/",
+        path = os.path.join("logs/",
                 figure_name,
                 scheme,
                 ing_type,

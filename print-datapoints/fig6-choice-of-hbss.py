@@ -26,7 +26,7 @@ for h in hashes:
     for scheme in schemes:
         for k in [12,16,32,64] if 'hors' in scheme else [2,4,8,16]:
             config = f'{k}-secrets' if 'hors' in scheme else f'{k}-depth'
-            path = os.path.join("../logs/",
+            path = os.path.join("logs/",
                     figure_name,
                     f'{h}-hash',
                     scheme,
