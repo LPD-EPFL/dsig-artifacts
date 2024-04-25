@@ -94,9 +94,9 @@ def parse_cpu_tput(path):
         measurement = ""
         for l in f:
             if '[DSIG][TOTAL][SIGN]' in l:
-                out['sign'] = int(re.findall("tput\: (\d+) sig\/s", l)[0])
+                out['sign'] = int(re.findall("tput\: (\d+) sig\/s", l)[0]) / 1000
             if '[DSIG][TOTAL][VERIF]' in l:
-                out['verif'] = int(re.findall("tput\: (\d+) sig\/s", l)[0])
+                out['verif'] = int(re.findall("tput\: (\d+) sig\/s", l)[0]) / 1000
     return out
 
 def parse_app(path):
