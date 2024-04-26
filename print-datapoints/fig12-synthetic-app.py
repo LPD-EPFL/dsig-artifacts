@@ -27,7 +27,7 @@ for proc_time in processing_times:
                     f'{proc_time}ns-processing-time',
                     f'msgs-of-{msg_size}B',
                     scheme,
-                    "proc1.txt")
+                    "proc2.txt")
             data = parse_tput(path)
             tput = data['tput']
             print(f'    - {scheme} with messages of {msg_size} B: {tput}kSig/s')
