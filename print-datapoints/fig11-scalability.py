@@ -28,7 +28,9 @@ for scaling in ['verifiers', 'signers']:
                 tput = data['tput']
                 if(tput > best_tput):
                     best_tput = tput
-            out = best_tput / 1000 * verifiers
+            out = best_tput / 1000
+            if scaling == 'verifiers':
+                out *= scale
             if scheme == 'dsig':
                 out /= 2 # dsig has two threads per process
             print(f'    - {scheme} with {scale} {scaling}: {out}kSig/s')
