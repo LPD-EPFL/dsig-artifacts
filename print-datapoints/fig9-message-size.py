@@ -16,7 +16,7 @@ subbars = [
     ("rverif", "verify"),
 ]
 
-path = os.path.join("../logs/", figure_name,
+path = os.path.join("logs/", figure_name,
         "msgs-of-8B", "eddsa-dalek", "proc1.txt")
 data = parse_ping(path)
 netoffset = data['net'][50]
