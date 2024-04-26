@@ -39,5 +39,3 @@ for h in hashes:
                 print(f'    - {latname}: {data[lat][50]}μs')
                 cumul += data[lat][50]
             print(f'    - total: {cumul}μs')
-
-                
