@@ -5,7 +5,8 @@ set -u
 SCRIPT_DIR="$( realpath -sm "$( dirname "${BASH_SOURCE[0]}" )" )"
 source "${SCRIPT_DIR}"/config.sh
 
-for i in $(seq 1 $MACHINE_COUNT); do
+# for i in $(seq 1 $MACHINE_COUNT); do
+for i in 1; do # Only need to be run on machine1
     MACHINE=$(machine2ssh machine$i)
     ssh -o LogLevel=QUIET -t $MACHINE \
         "ibportstate -C mlx5_1 10 1 width 4; \
