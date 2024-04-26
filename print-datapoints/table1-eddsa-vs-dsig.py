@@ -24,7 +24,7 @@ for scheme in schemes:
 
     path = os.path.join("logs/",
             figure_name,
-            scheme + "-cpu-tpu",
+            scheme + "-cpu-tput",
             "proc1.txt")
     data = parse_cpu_tput(path)
     print(f'    -throughput to sign: {data["sign"]}kops')
