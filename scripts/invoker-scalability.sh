@@ -18,5 +18,5 @@ tmux new-window -t $TMUX_SESSION -n "$WIN_NAME" \
      mkdir -p \"${LOG_DIR}/${FOLDER_NAME}/\"; \
      export DSIG_CONFIG=\"$TOML_DIR/$TOML\"; \
      export DSIG_CORES=\"bg=$BG_THD\"; \
-     stdbuf -o L -e L numactl -m 0 -N 0 -C $MAIN_THD \"${BIN_DIR}/$BINARY\" $ARGS 2>&1 | \"${LOG_DIR}/${FOLDER_NAME}/${WIN_NAME}.txt\"; \
+     stdbuf -o L -e L numactl -m 0 -N 0 -C $MAIN_THD \"${BIN_DIR}/$BINARY\" $ARGS 2>&1 | tee \"${LOG_DIR}/${FOLDER_NAME}/${WIN_NAME}.txt\"; \
      sleep 5"
