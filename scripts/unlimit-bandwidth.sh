@@ -17,7 +17,8 @@ done
 echo "Waiting 10 seconds for the ports to reset..."
 sleep 10
 
-for i in $(seq 1 $MACHINE_COUNT); do
+# for i in $(seq 1 $MACHINE_COUNT); do
+for i in 1; do # Only need to be run on machine1
     MACHINE=$(machine2ssh machine$i)
     ssh -t $MACHINE "ibportstate -C mlx5_1 10 1"
 done
