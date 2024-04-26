@@ -25,6 +25,7 @@ for retry in $(seq 1 15); do
     "${SCRIPT_DIR}"/remote-invoker-ubft.sh machine3 $NAME proc3 $EXEC -l 3 $ARGS
 
     "${SCRIPT_DIR}"/wait-till-completion.sh machine1 proc1 60 || continue
+    break
 done
 
 "${SCRIPT_DIR}"/kill-all-tmux.sh
