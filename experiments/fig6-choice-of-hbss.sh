@@ -16,7 +16,7 @@ LOG_BATCH_SIZE=7
 # Change the for-loop bellow as follows to enable blake3:
 # for HASH in {haraka,sha256,blake3}; do
 for HASH in {haraka,sha256}; do
-    for SECRETS in {64,32,24,19,16}; do
+    for SECRETS in {64,32,16,12}; do
         "${SCRIPT_DIR}"/test-dsig-hors.sh $FIGURE_NAME/$HASH-hash/hors-merkle/$SECRETS-secrets merkle $HASH $LOG_BATCH_SIZE $SECRETS -r 4
         "${SCRIPT_DIR}"/test-dsig-hors.sh $FIGURE_NAME/$HASH-hash/hors-merkle+prefetching/$SECRETS-secrets merkle $HASH $LOG_BATCH_SIZE $SECRETS -c -r 4
         "${SCRIPT_DIR}"/test-dsig-hors.sh $FIGURE_NAME/$HASH-hash/hors-factorized/$SECRETS-secrets completed $HASH $LOG_BATCH_SIZE $SECRETS -r 4
