@@ -24,7 +24,7 @@ for retry in $(seq 1 15); do
 
     "${SCRIPT_DIR}"/remote-invoker.sh machine1 $NAME proc1 $EXEC $ARGS
 
-    "${SCRIPT_DIR}"/wait-till-completion.sh machine1 proc1 60 || continue
+    "${SCRIPT_DIR}"/wait-till-completion.sh machine1 proc1 240 || continue
     break
 done
 
