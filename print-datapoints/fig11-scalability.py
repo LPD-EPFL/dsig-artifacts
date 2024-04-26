@@ -19,7 +19,7 @@ for scaling in ['verifiers', 'signers']:
                     f'scaling-{scaling}',
                     f'{scale}-{scaling}',
                     scheme,
-                    'run*'
+                    'run*',
                     "proc1.txt")
             paths = glob(paths)
             best_tput = 0
