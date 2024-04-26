@@ -1,4 +1,5 @@
 # Overview
+
 DSig is a microsecond-scale signature system for the datacenter.
 
 This repository contains the artifacts and the instructions needed to reproduce the experiments in our OSDI paper.
@@ -27,7 +28,7 @@ Assuming you have access to a pre-configured cluster, you will be able to run a 
 that measures the end-to-end latency of different apps for various signature schemes (figure 7) in less than 30 minutes by:
 1. Connecting to the pre-configured cluster's gateway,
 2. [Building and deploying the evaluation binaries](#Building-and-Deploying-the-Binaries),
-3. [Running the script for figure 7](#Running-Experiments).
+3. [Running the scripts for figure 7](#Running-Experiments).
 
 # Detailed instructions
 
@@ -133,40 +134,110 @@ As a sanity check, the `~/dsig-artifacts` directory should contain the `bin`, `e
 
 ## Running Experiments
 
-#### Secure bandwidth
-To ensure, that no bandwidth limiter was left active from a previous user, run the following:
+### Resetting Bandwidth Limiters
+
+To ensure, that no bandwidth limiter was left active by a previous user, run the following:
 ```sh
 experiments/reset-rdma-bandwidth.sh
 ```
 
-Note: Some experiments (fig11, fig12 and fig13) modify the bandwidth temporarily, but they should always return it to normal afterward.
+> *Note*: Some experiments (fig11, fig12 and fig13) modify the bandwidth temporarily, but they should always return it to normal afterward.
 In case one of those experiments crashes or is interupted, make sure to reset the bandwidth before running any other experiment.
 
-#### Running experiment
+### Experiments
 
-Once the binaries are deployed and the full bandwidth is available, you can reproduce the results presented in our paper from the gateway by running the scripts in `experiments/`.
-For instance, to reproduce the results of figure 7, first run `experiments/fig7-latency-of-apps.sh`.
+Once the binaries are deployed and the full bandwidth is available, you can reproduce the results presented in our paper from the gateway by running the following scripts.
+During the kick-the-tires period, we invite you to run the scripts of [figure 7](#figure-7) as a sanity check.
 
-Each figure/table maps to different scripts as follows:
-* Figure 1: `experiments/fig1-intro-latency-of-apps.sh`,
-* Figure 6: `experiments/fig6-choice-of-hbss.sh`,
-* Figure 7: `experiments/fig7-latency-of-apps.sh`,
-* Figure 8: `experiments/fig8-latency-cdf.sh`,
-* Figure 9: `experiments/fig9-message-size.sh`,
-* Figure 10: `experiments/fig10-throughput.sh` (very slow, for all data points), and `experiments/shorter-fig10-throughput.sh` (fast, for the critical data points),
-* Figure 11: `experiments/fig11-scalability.sh`,
-* Figure 12: `experiments/fig12-synthetic-app.sh`,
-* Figure 13: `experiments/fig13-batch-size.sh`,
-* Table 1: `experiments/table1-eddsa-vs-dsig.sh`.
+#### Figure 1
 
-#### Gathering logs
-The logs of the experiments---which translate to the data points presented in our paper---can then be found it the `~/dsig-artifacts/logs/` directory of the machines they executed on.
-Gather these logs in the gateway's `logs/` directory via:
 ```sh
-./gather-logs.sh
+experiments/fig1-intro-latency-of-apps.sh # run the experiment
+./gather-logs.sh # retrieve the logs from the workers to the gateway
+print-datapoints/fig1-intro-latency-of-apps.py # print the data points
 ```
 
-#### Printing datapoints
-Finally, while the names used in the folder hierachy of the logs should be self-explanatory, reading the individual logs can be difficult, which is why we also provide scripts to extract and print the relevant datapoints:
-Once the logs have been gathered-back on the gateway, the datapoints can be printed in a more friendly format using each python script in the `print-datapoints/` folder. The names of these scripts match the name of the scripts in the `experiments/` folder as described above, but with a `.py` extension instead.
-For instance, to extract and print the relevant datapoints of figure 7, run `print-datapoints/fig7-latency-of-apps.py`.
+> *Note*: The results slightly diverge from the accepted paper as the base cost (non-crypto) of BFT replication was underestimated (~23us vs ~46us reported by the script). This means that DSig leads to an even higher reduction of the crypto overhead. We will update the camera ready accordingly.
+
+#### Figure 6
+
+```sh
+experiments/fig6-choice-of-hbss.sh # run the experiment
+./gather-logs.sh # retrieve the logs from the workers to the gateway
+print-datapoints/fig6-choice-of-hbss.py # print the data points
+```
+
+> *Note*: Due to its extreme sensibility to cache effects, the verification latency of HORS with prefetching (which we do *not* recommend) might underperform the presented results. We will stress this extreme sensibility as another downside in the camera ready.
+
+#### Figure 7
+
+```sh
+experiments/fig7-latency-of-apps.sh # run the experiment
+./gather-logs.sh # retrieve the logs from the workers to the gateway
+print-datapoints/fig7-latency-of-apps.py # print the data points
+```
+
+> *Note*: Redis base cost (without crypto) seems to have increased by 3us ever since our evaluation.
+
+> *Note*: similarily to [figure 1](#figure-1), the base cost (non-crypto) of uBFT was underestimated (~23us vs ~46us reported by the script). This means that DSig leads to an even higher reduction of the crypto overhead. We will update the camera ready accordingly.
+
+#### Figure 8
+
+```sh
+experiments/fig8-latency-cdf.sh # run the experiment
+./gather-logs.sh # retrieve the logs from the workers to the gateway
+print-datapoints/fig8-latency-cdf.py # print the data points
+```
+
+> *Note*: Due to the extremely small size of EdDSA signatures, their transmission time is negligible; combined with measurement inaccuracies, this can lead to very small negative latencies being reported.
+
+#### Figure 9
+
+```sh
+experiments/fig9-message-size.sh # run the experiment
+./gather-logs.sh # retrieve the logs from the workers to the gateway
+print-datapoints/fig9-message-size.py # print the data points
+```
+
+#### Figure 10
+
+```sh
+# experiments/fig10-throughput.sh # run the full (slow) experiment
+experiments/shorter-fig10-throughput.sh # run a shorter experiment that focuses on the key points
+./gather-logs.sh # retrieve the logs from the workers to the gateway
+print-datapoints/fig10-throughput.py # print the data points
+```
+
+#### Figure 11
+
+```sh
+experiments/fig11-scalability.sh # run the experiment
+./gather-logs.sh # retrieve the logs from the workers to the gateway
+print-datapoints/fig11-scalability.py # print the data points
+```
+
+#### Figure 12
+
+```sh
+experiments/fig12-synthetic-app.sh # run the experiment
+./gather-logs.sh # retrieve the logs from the workers to the gateway
+print-datapoints/fig12-synthetic-app.py # print the data points
+```
+
+#### Figure 13
+
+```sh
+experiments/fig13-batch-size.sh # run the experiment
+./gather-logs.sh # retrieve the logs from the workers to the gateway
+print-datapoints/fig13-batch-size.py # print the data points
+```
+
+> *Note*: There are 2 typos in the accepted paper: the "2 Ki" ticks should show "4 Ki" and the "65 Ki" ticks should show "64 Ki".
+
+#### Table 1
+
+```sh
+experiments/table1-eddsa-vs-dsig.sh # run the experiment
+./gather-logs.sh # retrieve the logs from the workers to the gateway
+print-datapoints/table1-eddsa-vs-dsig.py # print the data points
+```
