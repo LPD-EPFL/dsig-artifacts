@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from dsigparser import parse_tput
 import os
+from glob import glob
 
 figure_name="fig11-scalability"
 
