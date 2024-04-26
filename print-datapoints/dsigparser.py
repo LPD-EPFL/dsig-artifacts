@@ -100,7 +100,7 @@ def parse_cpu_tput(path):
     return out
 
 def parse_app(path):
-    print(path)
+    # print(path)
     out = {}
     with open(path) as f:
         for l in f:
