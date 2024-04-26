@@ -14,7 +14,7 @@ for scaling in ['verifiers', 'signers']:
     print(f'Scaling {scaling}:')
     for scheme in schemes:
         for scale in range(1,12+1):
-            path = os.path.join("logs/",
+            paths = os.path.join("logs/",
                     figure_name,
                     f'scaling-{scaling}',
                     f'{scale}-{scaling}',
