@@ -20,7 +20,7 @@ for scheme in schemes:
     data = parse_ping(path)
     print(f'-data for {scheme}:')
     for lat, latname in subbars:
-        print(f'    - median latency to {latname}: {data[lat][50]}μs')
+        print(f'    -median latency to {latname}: {data[lat][50]}μs')
 
     path = os.path.join("logs/",
             figure_name,
