@@ -13,13 +13,18 @@ ARGS="${@:5}"
 
 ARGS=" --dev mlx5_1 --client-id 2 --application $APP -c $CONFIG --scheme $SCHEME $ARGS"
 
-"${SCRIPT_DIR}"/setup-all-tmux.sh
+for retry in $(seq 1 15); do
+    if [ $retry -gt 1 ]; then
+        echo "Retrying..."
+    fi
+    "${SCRIPT_DIR}"/setup-all-tmux.sh
 
-"${SCRIPT_DIR}"/remote-memc.sh machine1
+    "${SCRIPT_DIR}"/remote-memc.sh machine1
 
-"${SCRIPT_DIR}"/remote-invoker.sh machine1 $NAME server audit-server --local-id 1 $ARGS
-"${SCRIPT_DIR}"/remote-invoker.sh machine2 $NAME client audit-client --local-id 2 --server-id 1 $ARGS
+    "${SCRIPT_DIR}"/remote-invoker.sh machine1 $NAME server audit-server --local-id 1 $ARGS
+    "${SCRIPT_DIR}"/remote-invoker.sh machine2 $NAME client audit-client --local-id 2 --server-id 1 $ARGS
 
-"${SCRIPT_DIR}"/wait-till-completion.sh machine2 client
+    "${SCRIPT_DIR}"/wait-till-completion.sh machine2 client 60 || continue
+done
 
 "${SCRIPT_DIR}"/kill-all-tmux.sh

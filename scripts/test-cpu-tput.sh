@@ -14,12 +14,17 @@ ARGS="${@:4}"
 # PARAM="--scheme dsig"
 EXEC="dsig-cpu-tput-wots-$HASH-$BATCH_SIZE-$DEPTH"
 
-"${SCRIPT_DIR}"/setup-all-tmux.sh
+for retry in $(seq 1 15); do
+    if [ $retry -gt 1 ]; then
+        echo "Retrying..."
+    fi
+    "${SCRIPT_DIR}"/setup-all-tmux.sh
 
-"${SCRIPT_DIR}"/remote-memc.sh machine1
+    "${SCRIPT_DIR}"/remote-memc.sh machine1
 
-"${SCRIPT_DIR}"/remote-invoker.sh machine1 $NAME proc1 $EXEC $ARGS
+    "${SCRIPT_DIR}"/remote-invoker.sh machine1 $NAME proc1 $EXEC $ARGS
 
-"${SCRIPT_DIR}"/wait-till-completion.sh machine1 proc1
+    "${SCRIPT_DIR}"/wait-till-completion.sh machine1 proc1 60 || continue
+done
 
 "${SCRIPT_DIR}"/kill-all-tmux.sh
