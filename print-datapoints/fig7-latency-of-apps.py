@@ -14,8 +14,8 @@ apps = [
 
 subbars = [
     "no-crypto",
-    "eddsa-dalek",
     "eddsa-sodium",
+    "eddsa-dalek",
     "dsig",
 ]
 
