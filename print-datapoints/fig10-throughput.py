@@ -31,6 +31,8 @@ for ing_type in ingress_types:
             data = parse_tput(path)
             lat = data['one-way'][50]
             tput = data['tput']
+            if 'eddsa' in scheme:
+                tput *= 2 # dsig has two threads per process
             raw.append((tput / 1000, lat))
         xsys = []
         best_latency = 2**128
