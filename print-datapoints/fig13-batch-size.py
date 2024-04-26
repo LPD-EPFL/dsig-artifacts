@@ -5,9 +5,9 @@ import os
 figure_name="fig13-batch-size"
 
 subbars = [
-    ("rsign", "sign"),
+    ("sign", "sign"),
     ("net", "transmit"),
-    ("rverif", "verify"),
+    ("verif", "verify"),
 ]
 
 batch_sizes = [2**i for i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]]

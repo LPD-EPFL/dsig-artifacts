@@ -7,9 +7,9 @@ figure_name="table1-eddsa-vs-dsig"
 schemes = ['eddsa-dalek', 'dsig']
 
 subbars = [
-    ("rsign", "sign"),
+    ("sign", "sign"),
     ("net", "transmit"),
-    ("rverif", "verify"),
+    ("verif", "verify"),
 ]
 
 for scheme in schemes:

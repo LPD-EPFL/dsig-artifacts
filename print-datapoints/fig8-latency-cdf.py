@@ -12,9 +12,9 @@ schemes = [
 ]
 
 subbars = [
-    ("rsign", "sign"),
+    ("sign", "sign"),
     ("net", "transmit"),
-    ("rverif", "verify"),
+    ("verif", "verify"),
 ]
 
 path = os.path.join("logs/", figure_name, "eddsa-dalek", "proc1.txt")
