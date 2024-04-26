@@ -107,7 +107,7 @@ Build the evaluation binaries via:
 ./bin/dsig/build.sh dsig dsig-apps
 ```
 
-> *Note*: as our evaluation tests many different configurations of DSig, compilation can take a while (10~20min on our setup).
+> *Note*: as our evaluation tests many different configurations of DSig, compilation can take a while (~5min on our setup).
 
 Binaries for DSig and DSig's applications will appear in `bin/dsig/dsig/build/bin` and `bin/dsig/dsig-apps/build/bin`, respectively.
 
