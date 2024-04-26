@@ -6,8 +6,8 @@ from glob import glob
 figure_name="fig10-throughput"
 
 schemes = [
-    'eddsa-dalek',
     'eddsa-sodium',
+    'eddsa-dalek',
     'dsig',
 ]
 

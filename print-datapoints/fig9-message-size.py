@@ -5,8 +5,8 @@ import os
 figure_name="fig9-message-size"
 
 schemes = [
-    'eddsa-dalek',
     'eddsa-sodium',
+    'eddsa-dalek',
     'dsig',
 ]
 

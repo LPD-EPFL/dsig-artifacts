@@ -5,8 +5,8 @@ import os
 figure_name="fig8-latency-cdf"
 
 schemes = [
-    'eddsa-dalek',
     'eddsa-sodium',
+    'eddsa-dalek',
     'dsig',
     'dsig-badhint',
 ]
