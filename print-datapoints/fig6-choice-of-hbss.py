@@ -5,8 +5,8 @@ import os
 figure_name="fig6-choice-of-hbss"
 
 hashes = [
-    "haraka",
     "sha256",
+    "haraka",
 ]
 
 schemes = [
