@@ -30,4 +30,4 @@ for proc_time in processing_times:
                     "proc1.txt")
             data = parse_tput(path)
             tput = data['tput']
-            print(f'\t- {scheme} with messages of {msg_size} B: {tput}kSig/s')
+            print(f'    - {scheme} with messages of {msg_size} B: {tput}kSig/s')

@@ -36,8 +36,8 @@ for scheme in schemes:
     print(f'{scheme}:')
     cumul = 0
     for lat, latname in subbars:
-        print(f'\t- median to {latname}: {data[lat][50]}μs')
+        print(f'    - median to {latname}: {data[lat][50]}μs')
         cumul += data[lat][50]
-    print(f'\t- percentiles for total:')
+    print(f'    - percentiles for total:')
     for i in percentiles:
-        print(f'\t\t- {i}%: {data["one-way"][i]}μs')
+        print(f'        - {i}%: {data["one-way"][i]}μs')

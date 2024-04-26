@@ -36,8 +36,8 @@ for h in hashes:
             print(f'median latencies of {scheme} with {h} and {config}:')
             cumul = 0
             for lat, latname in subbars:
-                print(f'\t- {latname}: {data[lat][50]}μs')
+                print(f'    - {latname}: {data[lat][50]}μs')
                 cumul += data[lat][50]
-            print(f'\t- total: {cumul}μs')
+            print(f'    - total: {cumul}μs')
 
                 

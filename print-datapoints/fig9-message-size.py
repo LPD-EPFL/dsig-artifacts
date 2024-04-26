@@ -40,6 +40,6 @@ for scheme in schemes:
     print(f'{scheme} with messages of 8192 B:')
     cumul = 0
     for lat, latname in subbars:
-        print(f'\t- median to {latname}: {data[lat][50]}μs')
+        print(f'    - median to {latname}: {data[lat][50]}μs')
         cumul += data[lat][50]
-    print(f'\t- median for total: {data["one-way"][50]}μs')
+    print(f'    - median for total: {data["one-way"][50]}μs')

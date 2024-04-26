@@ -30,4 +30,4 @@ for scaling in ['verifiers', 'signers']:
             out = best_tput / 1000 * verifiers
             if scheme == 'dsig':
                 out /= 2 # dsig has two threads per process
-            print(f'\t- {scheme} with {scale} {scaling}: {out}kSig/s')
+            print(f'    - {scheme} with {scale} {scaling}: {out}kSig/s')
