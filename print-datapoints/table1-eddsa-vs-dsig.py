@@ -28,7 +28,7 @@ for scheme in schemes:
             "proc1.txt")
     data = parse_cpu_tput(path)
     print(f'    -throughput to sign: {data["sign"]}kops')
-    print(f'    -throughput to verify: {data["verify"]}kops')
+    print(f'    -throughput to verify: {data["verif"]}kops')
 
     if scheme == 'dsig':
         sig_size = 1584 # Printed at the start of the logs (fixed)

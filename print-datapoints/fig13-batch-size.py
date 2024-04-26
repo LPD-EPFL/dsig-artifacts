@@ -42,4 +42,4 @@ for bs in batch_sizes:
             f'batchsize-of-{bs}',
             "proc1.txt")
     data = parse_cpu_tput(path)
-    print(f'    -batches of {bs}: {data["verify"]}kSig/s')
+    print(f'    -batches of {bs}: {data["verif"]}kSig/s')
