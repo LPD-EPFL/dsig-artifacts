@@ -29,5 +29,5 @@ for proc_time in processing_times:
                     scheme,
                     "proc2.txt")
             data = parse_tput(path)
-            tput = data['tput']
+            tput = data['tput'] / 1000
             print(f'    - {scheme} with messages of {msg_size} B: {tput}kSig/s')
