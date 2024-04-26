@@ -93,9 +93,9 @@ def parse_cpu_tput(path):
     with open(path) as f:
         measurement = ""
         for l in f:
-            if '[DSIG][TOTAL][SIGN]' in l:
+            if '[DSIG][TOTAL][SIGN]' in l or '[EDDSA][SIGN]' in l:
                 out['sign'] = int(re.findall("tput\: (\d+) sig\/s", l)[0]) / 1000
-            if '[DSIG][TOTAL][VERIF]' in l:
+            if '[DSIG][TOTAL][VERIF]' in l or '[EDDSA][VERIF]' in l:
                 out['verif'] = int(re.findall("tput\: (\d+) sig\/s", l)[0]) / 1000
     return out
 
@@ -122,7 +122,7 @@ def parse_app(path):
 #     paths = sys.argv[1:]
 #     for exp in paths:
 #         print(os.path.basename(exp), end="\t")
-#         try: 
+#         try:
 #             if 'tput' in exp:
 #                 print(parse_tput(exp))
 #             if 'redis' in exp or :
