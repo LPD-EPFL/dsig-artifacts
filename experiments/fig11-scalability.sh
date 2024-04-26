@@ -12,10 +12,10 @@ FIGURE_NAME="fig11-scalability"
 
 for RUN in {1..3}; do
     for NB_CLIENTS in {12..1}; do
-        $FOLDER_PREFIX = $FIGURE_NAME/scaling-verifiers/$NB_CLIENTS-verifiers
+        FOLDER_PREFIX=$FIGURE_NAME/scaling-verifiers/$NB_CLIENTS-verifiers
         "${SCRIPT_DIR}"/test-scalability-verifiers.sh $FOLDER_PREFIX/dsig/run$RUN dsig $NB_CLIENTS auto 0
         "${SCRIPT_DIR}"/test-scalability-verifiers.sh $FOLDER_PREFIX/eddsa-dalek/run$RUN dalek $NB_CLIENTS auto 0
-        $FOLDER_PREFIX = $FIGURE_NAME/scaling-signers/$NB_CLIENTS-signers
+        FOLDER_PREFIX=$FIGURE_NAME/scaling-signers/$NB_CLIENTS-signers
         "${SCRIPT_DIR}"/test-scalability-signers.sh $FOLDER_PREFIX/dsig/run$RUN dsig $NB_CLIENTS auto 0
         "${SCRIPT_DIR}"/test-scalability-signers.sh $FOLDER_PREFIX/eddsa-dalek/run$RUN dalek $NB_CLIENTS auto 0 -t 60
     done
