@@ -28,7 +28,11 @@ for scheme in schemes:
             figure_name,
             scheme,
             "proc1.txt")
-    data = parse_ping(path, network_offset=netoffset, filter_tiles=False)
+    if('badhint' in scheme):
+        data = parse_ping(path, mode='SLOW', network_offset=netoffset, filter_tiles=False)
+    else:
+        data = parse_ping(path, network_offset=netoffset, filter_tiles=False)
+
     print(f'{scheme}:')
     cumul = 0
     for lat, latname in subbars:
