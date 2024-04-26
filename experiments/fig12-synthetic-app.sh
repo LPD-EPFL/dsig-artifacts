@@ -10,7 +10,7 @@ SCRIPT_DIR="$( realpath -sm "$( dirname "${BASH_SOURCE[0]}" )"/../scripts )"
 
 FIGURE_NAME="fig12-synthetic-app"
 
-for PROC_TIME in {1000,15000}; done
+for PROC_TIME in {1000,15000}; do
     for MSG_SIZE in {32,128,512,2048,8192,32768,131072}; do
         FOLDER_PREFIX=$FIGURE_NAME/${PROC_TIME}ns-processing-time/msgs-of-${MSG_SIZE}B
         "${SCRIPT_DIR}"/test-synthetic.sh $FOLDER_PREFIX/dsig dsig 3 $PROC_TIME $MSG_SIZE auto 0
