@@ -22,7 +22,7 @@ for ing_type in ingress_types:
                 figure_name,
                 scheme,
                 ing_type,
-                "*-interval-of-*ns',
+                "*-interval-of-*ns",
                 "proc1.txt")
         paths = glob(path)
         paths = sorted(paths, key=lambda p: (len(p), p), reverse=True)
