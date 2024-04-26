@@ -133,13 +133,9 @@ As a sanity check, the `~/dsig-artifacts` directory should contain the `bin`, `e
 
 ## Running Experiments
 
+#### Running experiment
 Once the binaries are deployed, you can reproduce the results presented in our paper from the gateway by running the scripts in `experiments/`.
-For instance, to reproduce the results of figure 7, run `experiments/fig7-latency-of-apps.sh`.
-The logs of the experiments---which translate to the data points presented in our paper---can be found it the `~/dsig-artifacts/logs/` directory of the machines they executed on.
-Gather these logs in the gateway's `logs/` directory via:
-```sh
-./gather-logs.sh
-```
+For instance, to reproduce the results of figure 7, first run `experiments/fig7-latency-of-apps.sh`.
 
 Each figure/table maps to different scripts as follows:
 * Figure 1: `experiments/fig1-intro-latency-of-apps.sh`,
@@ -152,3 +148,15 @@ Each figure/table maps to different scripts as follows:
 * Figure 12: `experiments/fig12-synthetic-app.sh`,
 * Figure 13: `experiments/fig13-batch-size.sh`,
 * Table 1: `experiments/table1-eddsa-vs-dsig.sh`.
+
+#### Gathering logs
+The logs of the experiments---which translate to the data points presented in our paper---can then be found it the `~/dsig-artifacts/logs/` directory of the machines they executed on.
+Gather these logs in the gateway's `logs/` directory via:
+```sh
+./gather-logs.sh
+```
+
+#### Printing datapoints
+Finally, while the names used in the folder hierachy of the logs should be self-explanatory, reading the individual logs can be difficult, which is why we also provide scripts to extract and print the relevant datapoints:
+Once the logs have been gathered-back on the gateway, the datapoints can be printed in a more friendly format using each python script in the `print-datapoints/` folder. The names of these scripts match the name of the scripts in the `experiments/` folder as described above, but with a `.py` extension instead.
+For instance, to extract and print the relevant datapoints of figure 7, run `print-datapoints/fig7-latency-of-apps.py`.
