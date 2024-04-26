@@ -31,6 +31,6 @@ for scaling in ['verifiers', 'signers']:
             out = best_tput / 1000
             if scaling == 'verifiers':
                 out *= scale
-            if scheme == 'dsig':
-                out /= 2 # dsig has two threads per process
+            if 'eddsa' in scheme:
+                out *= 2 # dsig has two threads per process
             print(f'    - {scheme} with {scale} {scaling}: {out}kSig/s')
