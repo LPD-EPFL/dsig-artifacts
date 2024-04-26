@@ -133,8 +133,18 @@ As a sanity check, the `~/dsig-artifacts` directory should contain the `bin`, `e
 
 ## Running Experiments
 
+#### Secure bandwidth
+To ensure, that no bandwidth limiter was left active from a previous user, run the following:
+```sh
+experiments/reset-rdma-bandwidth.sh
+```
+
+Note: Some experiments (fig11, fig12 and fig13) modify the bandwidth temporarily, but they should always return it to normal afterward.
+In case one of those experiments crashes or is interupted, make sure to reset the bandwidth before running any other experiment.
+
 #### Running experiment
-Once the binaries are deployed, you can reproduce the results presented in our paper from the gateway by running the scripts in `experiments/`.
+
+Once the binaries are deployed and the full bandwidth is available, you can reproduce the results presented in our paper from the gateway by running the scripts in `experiments/`.
 For instance, to reproduce the results of figure 7, first run `experiments/fig7-latency-of-apps.sh`.
 
 Each figure/table maps to different scripts as follows:
