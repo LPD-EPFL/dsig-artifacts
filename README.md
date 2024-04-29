@@ -75,13 +75,13 @@ To build the evaluation binaries, you need the dependencies below.
 
 Install the required dependencies on a vanilla Ubuntu 20.04 installation via:
 ```sh
-sudo apt-get -y install \
+sudo apt update
+sudo apt -y install \
     python3 python3-pip \
     gawk build-essential cmake ninja-build \
     git libssl-dev \
     libmemcached-dev \
     libibverbs-dev # only if Mellanox OFED is not installed.
-
 pip3 install --upgrade "conan>=1.63.0,<2.0.0"
 ```
 
@@ -105,8 +105,7 @@ If you are not using our pre-configured cluster, set the proper FQDN of the clus
 
 Build the evaluation binaries via:
 ```sh
-./bin/dsig/build.sh distclean buildclean clean
-./bin/dsig/build.sh dsig dsig-apps
+./bin/dsig/build.sh dsig-apps
 ```
 
 > *Note*: as our evaluation tests many different configurations of DSig, compilation can take a while (~5min on our setup).
