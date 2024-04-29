@@ -105,6 +105,7 @@ If you are not using our pre-configured cluster, set the proper FQDN of the clus
 
 Build the evaluation binaries via:
 ```sh
+./bin/dsig/build.sh distclean buildclean clean # cleans potential leftovers
 ./bin/dsig/build.sh dsig-apps
 ./bin/dsig/build.sh dsig-apps # due to conan concurrency issues, the first command might run into missing dependencies 
 ```
