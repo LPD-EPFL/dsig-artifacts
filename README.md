@@ -78,6 +78,7 @@ Install the required dependencies on a vanilla Ubuntu 20.04 installation via:
 sudo apt-get -y install \
     python3 python3-pip \
     gawk build-essential cmake ninja-build \
+    git libssl-dev \
     libmemcached-dev \
     libibverbs-dev # only if Mellanox OFED is not installed.
 
