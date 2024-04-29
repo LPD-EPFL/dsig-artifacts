@@ -123,7 +123,7 @@ Zip the binaries and prepare their deployment via:
 To deploy, you will need to:
 - send `deployment.zip` to all the cluster's servers,
 - unzip `deployment.zip` in the `~/dsig-artifacts` directory,
-- unzip `~/dsig-artifacts/bin/bin.zip` in the ``~/dsig-artifacts/bin` directory.
+- unzip `~/dsig-artifacts/bin/bin.zip` in the `~/dsig-artifacts/bin` directory.
 
 On our pre-configured cluster, this can be done via:
 ```sh
