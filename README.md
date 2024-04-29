@@ -106,6 +106,7 @@ If you are not using our pre-configured cluster, set the proper FQDN of the clus
 Build the evaluation binaries via:
 ```sh
 ./bin/dsig/build.sh dsig-apps
+./bin/dsig/build.sh dsig-apps # due to conan concurrency issues, the first command might run into missing dependencies 
 ```
 
 > *Note*: as our evaluation tests many different configurations of DSig, compilation can take a while (~5min on our setup).
